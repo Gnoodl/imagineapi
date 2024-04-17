@@ -99,7 +99,8 @@ export const onWsMessage = (
   prompt: string,
   rawMessage: WsMessageEvent
 ) => {
-  const sliceLenght = 1000;
+  const sliceLenght = 5000;
+
   logger.info(`WS \u{1F4A6} WsMessage line:105 [${prompt}]`, {
     messageData: `${rawMessage.data.toString().slice(0, sliceLenght)}${
       rawMessage.data.toString().length > sliceLenght ? "..." : ""
@@ -122,6 +123,12 @@ export const onWsMessage = (
     // heartbeat
     logger.debug("WS Heartbeat", { message });
     ConnectionPool[discordUserId].lastSequence = message.s ?? null;
+    return;
+  }
+
+  if (message.op === 11) {
+    // heartbeat
+    logger.debug("WS Heartbeat ack", { message });
     return;
   }
 
