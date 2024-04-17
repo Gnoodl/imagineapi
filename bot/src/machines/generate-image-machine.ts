@@ -453,10 +453,6 @@ export const generateImageMachine =
             ],
             UPDATED_MESSAGE: [
               {
-                target: "started",
-                cond: "isWaitingToStart",
-              },
-              {
                 target: "inProgress",
                 actions: ["updateProgress"],
                 cond: "isInProgress",
@@ -757,7 +753,7 @@ export const generateImageMachine =
         },
         isWaitingToStart: (context, event) => {
           logger.debug(
-            `Testing condition in NEW_MESSAGE event [${context.prompt}]`,
+            `Opppy Testing condition in NEW_MESSAGE event [${context.prompt}]`,
             {
               event,
             }
