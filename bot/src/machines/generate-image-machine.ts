@@ -453,6 +453,10 @@ export const generateImageMachine =
             ],
             UPDATED_MESSAGE: [
               {
+                target: "started",
+                cond: "isWaitingToStart",
+              },
+              {
                 target: "inProgress",
                 actions: ["updateProgress"],
                 cond: "isInProgress",
