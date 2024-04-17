@@ -477,8 +477,8 @@ export const generateImageMachine =
             ],
           },
           after: {
-            // timeout after 1.5 minutes
-            [1.5 * 60 * 1000]: {
+            // timeout after 2 minutes
+            [2 * 60 * 1000]: {
               target: "localError",
               actions: [
                 assign({
@@ -758,7 +758,8 @@ export const generateImageMachine =
               event,
             }
           );
-          return event.data.content.endsWith("(Waiting to start)");
+          const matched = event.data.content.match(PROGRESS_REGEX);
+          return event.data.content.endsWith("(Waiting to start)") || matched;
         },
         isInProgress: (context, event) => {
           // event.message matches the regex (0-100%) (fast, stealth) or (0-100%) (fast)
