@@ -597,7 +597,7 @@ export const generateImageMachine =
           },
           after: {
             // timeout after 3 minutes
-            [3 * 60 * 1000]: {
+            [5 * 60 * 1000]: {
               target: "localError",
               actions: [
                 assign({
