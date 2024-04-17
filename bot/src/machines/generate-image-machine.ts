@@ -759,7 +759,7 @@ export const generateImageMachine =
             }
           );
           const matched = event.data.content.match(PROGRESS_REGEX);
-          return event.data.content.endsWith("(Waiting to start)") || matched;
+          return event.data.content.endsWith("(Waiting to start)") || (matched !== null);
         },
         isInProgress: (context, event) => {
           // event.message matches the regex (0-100%) (fast, stealth) or (0-100%) (fast)
