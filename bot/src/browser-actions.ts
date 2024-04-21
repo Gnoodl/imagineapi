@@ -82,7 +82,7 @@ export async function sendCaptchaChallengeAction(
       }&method=hcaptcha&sitekey=${sitekey}&pageurl=${page.url()}`
     );
 
-    logger.debug(`Got response from 2captcha:`, captchaResponse);
+    logger.debug(`Got response from 2captcha:${captchaResponse}`, captchaResponse);
 
     const captchaResponseText = await captchaResponse.text();
     const [status, captchaId] = captchaResponseText.split("|");

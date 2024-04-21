@@ -752,11 +752,14 @@ export const ConnectionPool: WsConnectionPool = {};
               `https://2captcha.com/res.php?key=${process.env.TWO_CAPTCHA_API_KEY}&action=get&id=${context.captchaId}`
             ).then((solvedCaptchaResponse) => {
               logger.debug(
-                `Got reponse from 2captcha: ${solvedCaptchaResponse.status}`,
+                `CHASE reponse from 2captcha: ${solvedCaptchaResponse.status}`,
                 solvedCaptchaResponse
               );
               solvedCaptchaResponse.text().then((responseText) => {
                 const solvedCaptchaResponseText = responseText;
+                logger.debug(
+                  `CAPTCHA RESPONSE TEXT ${responseText}`
+                );
                 if (solvedCaptchaResponseText.startsWith("OK")) {
                   const solvedCaptcha = solvedCaptchaResponseText.split("|")[1];
                   logger.debug("Captcha solved:", solvedCaptcha);
@@ -767,7 +770,7 @@ export const ConnectionPool: WsConnectionPool = {};
                   });
                 } else {
                   logger.debug(
-                    "Captcha not solved yet. Retrying in 5 seconds..."
+                    "CHASE Captcha not solved yet. Retrying in 5 seconds..."
                   );
                 }
               });
