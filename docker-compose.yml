@@ -62,7 +62,7 @@ services:
     networks:
       - imagineapi_net
   bot:
-    image: imagineapi/imagineapi-bot:latest
+    image: coverartstudio/imagineapi-bot:latest
     environment:
       SERVICE_NAME: consumer
 
