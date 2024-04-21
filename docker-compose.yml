@@ -17,7 +17,7 @@ services:
   api:
     image: imagineapi/imagineapi-api:latest
     ports:
-      - 8055:8055
+      - 8055:80
     environment:
       DB_CLIENT: postgres
       DB_HOST: database

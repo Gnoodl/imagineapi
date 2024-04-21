@@ -19,7 +19,7 @@ services:
       context: ./api
       dockerfile: Dockerfile
     ports:
-      - 8055:8055
+      - 8055:80
     environment:
       DB_CLIENT: postgres
       DB_HOST: database
