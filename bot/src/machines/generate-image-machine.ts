@@ -99,7 +99,7 @@ export const onWsMessage = (
   prompt: string,
   rawMessage: WsMessageEvent
 ) => {
-  const sliceLenght = 5000;
+  const sliceLenght = 1000;
 
   logger.info(`WS \u{1F4A6} WsMessage line:105 [${prompt}]`, {
     messageData: `${rawMessage.data.toString().slice(0, sliceLenght)}${
