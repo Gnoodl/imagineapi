@@ -268,8 +268,8 @@ export const ConnectionPool: WsConnectionPool = {};
   };
 
   const DISCORD_LOGIN_URL = "https://discord.com/login";
-  const CAPTCHA_TIMEOUT = 2 * 60 * 1000; // 2 minutes
-  const CAPTCHA_RECHECK = 5000; // 5 seconds
+  const CAPTCHA_TIMEOUT = 5 * 60 * 1000; // 2 minutes
+  const CAPTCHA_RECHECK = 10000; // 5 seconds
 
   // Delay function
   function delay(ms: number): Promise<void> {
